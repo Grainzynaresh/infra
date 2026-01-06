@@ -45,6 +45,7 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.9);
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.05);
+            overflow-y: auto;
         }
 
         .glass-card {
@@ -74,6 +75,94 @@
             0% { left: -60%; }
             100% { left: 160%; }
         }
+
+/* =========================
+   MOBILE RESPONSIVE LAYER
+   ========================= */
+@media (max-width: 768px) {
+
+    body {
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .slide-container {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        padding: 16px;
+        border-radius: 0.75rem;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    header > div:last-child {
+        align-self: stretch;
+        justify-content: space-between;
+    }
+
+    /* Controls stack */
+    .control-hub {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    /* Summary becomes vertical */
+    .summary-tile > div {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+    }
+
+    .summary-tile .border-r,
+    .summary-tile .border-l {
+        border: none;
+        padding: 0;
+    }
+
+    #val-summary-turnover {
+        font-size: 3rem;
+    }
+
+    /* Charts grid → 1 column */
+    #gauge-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+
+    .chart-container {
+        width: 140px;
+        height: 140px;
+    }
+
+    /* Typography scale-down */
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .category-pill {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .slider-custom {
+        height: 6px;
+    }
+
+    .slider-custom::-webkit-slider-thumb {
+        width: 18px;
+        height: 18px;
+    }
+}
+
 
         .slider-custom {
             -webkit-appearance: none;
@@ -206,9 +295,7 @@
     <header class="flex justify-between items-end mb-4">
         <div class="flex items-center gap-4">
             <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 shadow-2xl">
-                <img src="./image_b8c8a6.png" class="h-6 object-contain" onerror="this.src='https://placehold.co/40x40/8b5cf6/ffffff?text=IX'">
-             
-
+                <img src="image_b8c8a6.png" class="h-6 object-contain" onerror="this.src='https://placehold.co/40x40/8b5cf6/ffffff?text=IX'">
             </div>
             <div>
                 <h1 class="text-2xl font-extrabold uppercase italic tracking-tighter shimmer-text">infra<span class="text-violet-500 font-light">Xpert</span></h1>
@@ -494,5 +581,4 @@
     };
 </script>
 </body>
-
 </html>
