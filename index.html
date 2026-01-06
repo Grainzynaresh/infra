@@ -37,6 +37,7 @@
             width: 1280px;
             height: 720px;
             padding: 30px 40px;
+            transform-origin: top center;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -287,6 +288,40 @@
         .hidden-tile {
             display: none !important;
         }
+/* =========================
+   TRUE MOBILE FIT SOLUTION
+   ========================= */
+
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .slide-container {
+        transform: scale(var(--scale));
+        margin-top: 12px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+    .slide-container {
+        transform: scale(var(--scale));
+    }
+}
+function scaleDeck() {
+    const baseWidth = 1280;
+    const screenWidth = window.innerWidth;
+    const scale = Math.min(screenWidth / baseWidth, 1);
+    document.documentElement.style.setProperty('--scale', scale);
+}
+
+window.addEventListener('resize', scaleDeck);
+scaleDeck();
+
+        
     </style>
 </head>
 <body>
@@ -582,3 +617,4 @@
 </script>
 </body>
 </html>
+
