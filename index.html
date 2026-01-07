@@ -33,22 +33,20 @@
                 radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.12) 0%, transparent 45%);
         }
 
-     .slide-container {
-    width: 1280px;
-    height: 720px;
-    padding: 30px 40px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background: var(--bg-deep);
-    border-radius: 1rem;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.9);
-    border: 1px solid rgba(255,255,255,0.05);
-
-    /* 🔑 IMPORTANT */
-    transform-origin: top center;
-    overflow: hidden;
-}
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: var(--bg-deep);
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow-y: auto;
+        }
 
         .glass-card {
             background: var(--card-glass);
@@ -289,46 +287,11 @@
         .hidden-tile {
             display: none !important;
         }
-/* =========================
-   TRUE MOBILE FIT SOLUTION
-   ========================= */
-
-@media (max-width: 768px) {
-    body {
-        align-items: flex-start;
-        padding: 0;
-        overflow-x: hidden;
-    }
-
-    .slide-container {
-        transform: scale(var(--scale));
-        margin-top: 12px;
-    }
-}
-
-/* Extra small phones */
-@media (max-width: 480px) {
-    .slide-container {
-        transform: scale(var(--scale));
-    }
-}
-function scaleDeck() {
-    const baseWidth = 1280;
-    const screenWidth = window.innerWidth;
-    const scale = Math.min(screenWidth / baseWidth, 1);
-    document.documentElement.style.setProperty('--scale', scale);
-}
-
-window.addEventListener('resize', scaleDeck);
-scaleDeck();
-
-        
     </style>
 </head>
 <body>
 
 <div class="slide-container">
-     <div class="slide-scroll">
     <header class="flex justify-between items-end mb-4">
         <div class="flex items-center gap-4">
             <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 shadow-2xl">
@@ -344,8 +307,6 @@ scaleDeck();
             <div id="btn-steel" class="category-pill active" onclick="toggleView('steel')">Steel</div>
             <div id="btn-others" class="category-pill active" onclick="toggleView('others')">Others</div>
         </div>
-        </div>
-</div>
     </header>
 
     <!-- Interactive Variables Hub -->
@@ -621,5 +582,3 @@ scaleDeck();
 </script>
 </body>
 </html>
-
-
